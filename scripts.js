@@ -27,4 +27,10 @@ function paintToCanvas() {
     }, 16);
     console.log(width, height);
 } 
+
+function takePhoto() {
+    snap.currentTime = 0;
+    snap.play();
+}
+
 getVideo();
