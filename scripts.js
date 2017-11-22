@@ -29,8 +29,22 @@ function paintToCanvas() {
 } 
 
 function takePhoto() {
+    //play the sound
     snap.currentTime = 0;
     snap.play();
+
+    //ate the data out of the canvas
+    const data = canvas.toDataURL('image/jpeg');
+    const link = document.createElement('a');
+    link.href = data;
+    link.setAttribute('download', 'beatiful');
+    //link.textContent = "Download Image";
+    link.innerHTML = `<img src="${data}" alt="Rose" />`
+    strip.insertBefore(link, strip.firstChild);
+    console.log(data);
 }
 
 getVideo();
+
+
+video.addEventListener('canplay', paintToCanvas);
